@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>All Company Data</h3>
+<table border="1" class="table table-dark">
+    <tr>
+        <th>Comp ID</th>
+        <th>Comp Name</th>
+        <th>Comp Address</th>
+        <th>Comp Type</th>
+        <th>Comp Details</th>
+    </tr>
+    {% for c in comps %}
+    <tr>
+        <td>{{c.cid}}</td>
+        <td>{{c.cname}}</td>
+        <td>{{c.caddr}}</td>
+        <td>{{c.ctype}}</td>
+        <td>{{c.cdetails}}</td>
+        <td>
+            <a href="/delete/?id={{c.cid}}"><button type="button" class="btn btn-danger">Delete</button>
+            </a>
+            <a href="/edit/?id={{c.cid}}"><button type="button" class="btn btn-primary">Edit</button>
+            </a>
+            <a href="/p/?id={{c.cname}}"><button type="button">P</button></a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

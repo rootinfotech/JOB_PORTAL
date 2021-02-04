@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Are you sure u want to delete this order of {{ap.aname}}?</h3>
+<a href="{%url 'viewApplicant' %}"><button type="button" class="btn btn-success">Cancel</button></a>
+
+    <form method="post">
+        {% csrf_token %}
+        <a href="/adelete/?id={{ap.aid}}">
+        <input type="submit" value="Delete" class="btn btn-danger">
+        </a>
+    </form>
+{% endblock %}

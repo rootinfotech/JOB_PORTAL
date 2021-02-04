@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Applicants Data</h3>
+<table border="1" class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th>Applicant ID</th>
+        <th>Applicant Name</th>
+        <th>Applicant Phone</th>
+        <th>Applicant company</th>
+        <th>Applicant Branch</th>
+        <th>Apllicant Skills</th>
+        <th>Applicant Interest</th>
+        <th>Applicant Username</th>
+        <th>Applicant Password</th>
+    </tr>
+    </thead>
+    {% for a in appls %}
+    <tr>
+        <td>{{a.aid}}</td>
+        <td>{{a.aname}}</td>
+        <td>{{a.aphone}}</td>
+        <td><a href="/p/?id={{a.company}}">{{a.company}}</a></td>
+        <td>{{a.abranch}}</td>
+        <td>{{a.askills}}</td>
+        <td>{{a.ainterest}}</td>
+        <td>{{a.username}}</td>
+        <td>{{a.password}}</td>
+        <td>
+                <a href="/adelete/?id={{a.aid}}">
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </a>
+                <a href="/aedit/?id={{a.aid}}">
+                    <button type="button" class="btn btn-primary">Edit</button>
+                </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

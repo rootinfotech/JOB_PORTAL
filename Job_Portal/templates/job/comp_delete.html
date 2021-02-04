@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{com.cid}}
+<h3>Are you sure u want to delete this order of {{com.cname}}?</h3>
+<a href="{%url 'viewCompany' %}"><button type="button" class="btn btn-success">Cancel</button></a>
+
+    <form method="post">
+        {% csrf_token %}
+        <a href="/delete/?id={{com.cid}}">
+        <input type="submit" value="Delete" class="btn btn-danger">
+        </a>
+    </form>
+{% endblock %}

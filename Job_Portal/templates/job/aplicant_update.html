@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+
+<form action="" method="post" style="width:500px; margin-left:450px;" class="jumbotron">
+    {% csrf_token %}
+    <h4>Applicants Registration Form</h4>
+    {{form|crispy}}
+    <input type="submit">
+</form>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>You have applied for this job.</h3>
+<h5>To apply for another job</h5>
+<a href="{%url 'viewJob' %}"> <button type="button" class="btn btn-Link">Click Here</button></a>
+<br>
+<h3>Perticular Company data</h3>
+<table border="1" class="table table-dark">
+    <tr>
+        <th>Company ID</th>
+        <th>Company Name</th>
+        <th>Company Address</th>
+        <th>Company Type</th>
+        <th>Company details</th>
+    </tr>
+    {% for c in comps %}
+    <tr>
+        <td>{{c.cid}}</td>
+        <td>{{c.cname}}</td>
+        <td>{{c.caddr}}</td>
+        <td>{{c.ctype}}</td>
+        <td>{{c.cdetails}}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+{% endblock %}

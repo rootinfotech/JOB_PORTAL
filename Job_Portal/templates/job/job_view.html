@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>All Posted Jobs</h3>
+<table border="1" class="table table-striped">
+    <tr>
+        <th>Company Name</th>
+        <th>Job Title</th>
+        <th>Job Desc</th>
+        <th>Job Salary</th>
+        <th>Job Openings</th>
+    </tr>
+    {% for j in jobs %}
+    <tr>
+        <td>{{j.company}}</td>
+        <td>{{j.jobtitle}}</td>
+        <td>{{j.jobdesc}}</td>
+        <td>{{j.jobsalary}}</td>
+        <td>{{j.jobopno}}</td>
+        <td>
+            <a href="{%url 'addApplicant' %}">
+                <button type="button" class="btn btn-success">Apply</button>
+            </a>
+            <a href="/jdelete/?id={{j.jobtitle}}">
+                <button type="button" class="btn btn-danger">Delete</button>
+            </a>
+            <a href="/jedit/?id={{j.jobtitle}}">
+                <button type="button" class="btn btn-primary">Edit</button>
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Are u sure u want to delete this job {{jobs.jobtitle}}</h3>
+<a href="{%url 'viewJob' %}"><button type="button" class="btn btn-success">Cancel</button></a>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <a href="/jdelete/?id={{jobs.jobtitle}}">
+        <input type="submit" value="Delete" class="btn btn-danger">
+    </a>
+</form>
+{% endblock %}
